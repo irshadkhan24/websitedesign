@@ -1,0 +1,106 @@
+:root {
+  --light-pink-color: #ffe4e6;
+  --secondary-color: #d6336c;
+  --primary-color: #6610f2;
+  --border-radius-circle: 50%;
+  --font-size-m: 1.25rem;
+}
+
+/* Testimonials section styling */
+.testimonials-section {
+  padding: 50px 0 100px;
+  background: var(--light-pink-color);
+}
+
+.testimonials-section .section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.testimonials-section .slider-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.testimonials-section .testimonial {
+  user-select: none;
+  display: flex;
+  padding: 35px;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgb(0 0 0 / 0.1);
+  min-height: 380px;
+  box-sizing: border-box;
+}
+
+.testimonials-section .testimonial .user-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  margin-top: 50px;
+  border-radius: var(--border-radius-circle);
+  border: 4px solid var(--secondary-color);
+}
+
+.testimonials-section .testimonial .name {
+  margin: 30px 0 16px;
+  font-size: var(--font-size-m);
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.testimonials-section .testimonial .feedback {
+  font-style: italic;
+  line-height: 25px;
+  color: #555;
+  padding: 0 20px;
+}
+
+/* Pagination bullets */
+.testimonials-section .swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  opacity: 1;
+  background: var(--secondary-color);
+  margin: 0 6px !important;
+}
+
+.testimonials-section .swiper-pagination-bullet-active {
+  background: var(--primary-color);
+}
+
+/* Navigation buttons */
+.testimonials-section .swiper-button-prev,
+.testimonials-section .swiper-button-next {
+  color: var(--secondary-color);
+  top: auto;
+  bottom: -60px;
+  transition: 0.3s ease;
+}
+
+.testimonials-section .swiper-button-prev:hover,
+.testimonials-section .swiper-button-next:hover {
+  color: var(--primary-color);
+}
+
+/* Responsive styles for Testimonials (640px) */
+@media screen and (max-width: 640px) {
+  .testimonials-section {
+    padding: 30px 10px 70px;
+  }
+
+  .testimonials-section .slider-container {
+    max-width: 100%;
+  }
+
+  .testimonials-section .swiper-button-prev,
+  .testimonials-section .swiper-button-next {
+    display: none;
+  }
+}
