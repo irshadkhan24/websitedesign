@@ -1,6 +1,4 @@
-// ---------------------------
 // Mobile Menu Toggle
-// ---------------------------
 const navLinks = document.querySelectorAll('.nav-menu .nav-link');
 const menuOpenButton = document.querySelector('#menu-open-button');
 const menuCloseButton = document.querySelector('#menu-close-button');
@@ -19,20 +17,19 @@ navLinks.forEach(link => {
 
 
 // Testimonials Swiper Slider
-
 const swiper = new Swiper('.slider-wrapper', {
     loop: true,
     grabCursor: true,
     spaceBetween: 25,
 
-    // ⭐ AUTO-SLIDE
+    // AUTO-SLIDE
     autoplay: {
-        delay: 2500,  // हर 2.5 सेकंड में slide बदलेगा
+        delay: 2500,  // Every 2.5 Second slide change
         disableOnInteraction: false,
     },
 
     // ⭐ SMOOTH SLIDE ANIMATION
-    effect: "slide",  // चाहें तो "fade" भी लगा सकते हो
+    effect: "slide",  
     speed: 800,       // slide speed
 
     // Pagination bullets
