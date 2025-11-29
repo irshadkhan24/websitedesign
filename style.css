@@ -564,3 +564,70 @@ header .navbar{
   animation: slowPopOutCoffee 3.5s ease-out infinite;  /* forward use only single */
   animation-delay: 0.5s;
 }
+
+/* For Navbar animation up to below slide*/
+@keyframes navbarSlideDown {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Apply to navbar */
+header {
+  animation: navbarSlideDown 0.9s ease-out forwards;
+}
+
+@keyframes heroTextLoop {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+.hero-details {
+  animation: heroTextLoop 5s ease-in-out infinite;
+}
+
+@keyframes heroImageLoop {
+  0% {
+    opacity: 0;
+    transform: translateX(60px) scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-60px) scale(0.9);
+  }
+}
+
+.hero-image-wrapper {
+  animation: heroImageLoop 5s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+/* Menu images hover zoom animation (Same as Gallery) */
+.menu-section .menu-item .menu-image {
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+
+.menu-section .menu-item:hover .menu-image {
+    transform: scale(1.25);   /* Zoom level */
+}
+
