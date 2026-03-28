@@ -141,17 +141,4 @@ window.addEventListener("scroll", () => {
 });
 
 
-// ================= MENU SCROLL ANIMATION REPLAY =================
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        } else {
-            entry.target.classList.remove("show"); // replay
-        }
-    });
-}, { threshold: 0.2 });
 
-document.querySelectorAll(".menu-item").forEach(el => {
-    observer.observe(el);
-});
