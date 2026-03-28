@@ -57,4 +57,31 @@ const swiper = new Swiper('.slider-wrapper', {
             slidesPerView: 3
         },
     }
+
+    // ================= SCROLL ANIMATION =================
+const sr = ScrollReveal({
+  origin: 'bottom',
+  distance: '60px',
+  duration: 1200,
+  delay: 200,
+  reset: false
+});
+
+// Hero section
+sr.reveal('.hero-details', { origin: 'left' });
+sr.reveal('.hero-image-wrapper', { origin: 'right' });
+
+// About
+sr.reveal('.about-image-wrapper', { origin: 'left' });
+sr.reveal('.about-details', { origin: 'right' });
+
+// Menu
+sr.reveal('.menu-item', { interval: 200 });
+
+// Gallery
+sr.reveal('.gallery-item', { interval: 200 });
+
+// Contact
+sr.reveal('.contact-info', { interval: 200 });
+sr.reveal('.contact-form', { origin: 'right' });
 });
