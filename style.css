@@ -677,9 +677,7 @@ header .navbar{
   transform-style: preserve-3d;
 }
 
-.menu-item:hover .menu-image {
-  transform: rotateY(180deg);
-}
+
 
 /* Menu image zoom */
 .menu-section .menu-item .menu-image {
@@ -715,8 +713,8 @@ header .navbar{
 .menu-item:hover,
 .testimonial:hover,
 .gallery-item:hover {
-  transform: translateY(-15px) scale(1.03);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+ transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
 
 .custom-cursor {
