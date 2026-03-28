@@ -316,7 +316,7 @@ header .navbar{
   width: 170px;
   margin: 40px auto 20px;  /*  niche laaya */
   display: block;
-   animation: smoothEntry 2.5s ease-out, floatContinuous 6s ease-in-out infinite;  /* Infinite animation */
+   animation: smoothEntry 1.8s ease-out, floatContinuous 4s ease-in-out infinite;  /* Infinite animation */
 }
 
 /*  Entry (andar se bahar) */
