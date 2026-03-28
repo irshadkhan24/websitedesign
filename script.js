@@ -142,15 +142,15 @@ window.addEventListener("scroll", () => {
   // ================= PROJECT STYLE GALLERY =================
 const galleryItems = document.querySelectorAll('.gallery-item');
 
-// Alternate reverse class auto add
+// alternate reverse
 galleryItems.forEach((item, index) => {
   if (index % 2 !== 0) {
     item.classList.add('reverse');
   }
 });
 
-// Scroll animation
-const galleryObserver = new IntersectionObserver((entries) => {
+// scroll animation
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
@@ -160,9 +160,7 @@ const galleryObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.3 });
 
-galleryItems.forEach(item => {
-  galleryObserver.observe(item);
-});
+galleryItems.forEach(item => observer.observe(item));
 });
 
 
