@@ -314,9 +314,21 @@ header .navbar{
 /* IMAGE PERFECT CENTER */
 .menu-item .menu-image {
   width: 130px;
-  margin: 40px auto 20px;  /* 👈 niche laaya */
+  margin: 40px auto 20px;  /*  niche laaya */
   display: block;
-  transition: 0.4s ease;
+   animation: floatImage 4s ease-in-out infinite;   /* Infinite animation */
+}
+
+@keyframes floatImage {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /* TEXT STYLE */
