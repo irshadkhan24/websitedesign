@@ -440,32 +440,33 @@ header .navbar{
 .testimonials-section .swiper-slide-button:hover{
   color: var(--primary-color);
 }
-/* ================= PREMIUM PROJECT STYLE GALLERY ================= */
+/* ================= CLEAN GALLERY (2 PER ROW) ================= */
 .gallery-section {
-  padding: 100px 0;
-  background: #111;
+  padding: 80px 0;
+  background: #f5f7fa; /* 🔥 light professional bg */
 }
 
 .gallery-list {
   display: flex;
-  flex-direction: column;
-  gap: 80px;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
 }
 
-/* CARD LIKE PROJECT */
+/* 2 PER ROW */
 .gallery-item {
-  display: flex;
-  align-items: center;
-  gap: 60px;
+  width: calc(50% - 15px);
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  padding: 10px;
 
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+  /* animation */
   opacity: 0;
-  transform: translateY(60px);
-  transition: all 1s ease;
-}
-
-/* ALTERNATE LEFT RIGHT */
-.gallery-item.reverse {
-  flex-direction: row-reverse;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
 }
 
 /* SHOW */
@@ -474,48 +475,32 @@ header .navbar{
   transform: translateY(0);
 }
 
-/* IMAGE BOX */
+/* IMAGE FIX (IMPORTANT 🔥) */
 .gallery-image {
   width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 12px;
-
-  /* 🔥 MAIN REVEAL EFFECT */
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 1.4s cubic-bezier(0.77, 0, 0.18, 1), transform 1.5s ease;
+  height: 260px;   /* 👈 controlled height */
+  object-fit: contain; /* 👈 FULL IMAGE visible (no cut) */
+  background: #fff; /* space fill */
+  border-radius: 10px;
+  transition: transform 0.4s ease;
 }
 
-/* NORMAL SHOW */
-.gallery-item.show .gallery-image {
-  clip-path: inset(0 0 0 0);
-}
-
-/* REVERSE ANIMATION */
-.gallery-item.reverse .gallery-image {
-  clip-path: inset(0 0 0 100%);
-}
-
-.gallery-item.reverse.show .gallery-image {
-  clip-path: inset(0 0 0 0);
-}
-
-/* HOVER ZOOM */
+/* HOVER */
 .gallery-item:hover .gallery-image {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 /* MOBILE */
-@media (max-width: 900px) {
-  .gallery-item,
-  .gallery-item.reverse {
-    flex-direction: column;
+@media (max-width: 768px) {
+  .gallery-item {
+    width: 100%;
   }
 
   .gallery-image {
-    height: 250px;
+    height: 220px;
   }
-}/* Contact US section styling */
+}
+/* Contact US section styling */
 .contact-section{
   padding: 50px 0 100px;
   background: var(--light-pink-color);
