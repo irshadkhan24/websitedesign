@@ -313,20 +313,34 @@ header .navbar{
 
 /* IMAGE PERFECT CENTER */
 .menu-item .menu-image {
-  width: 160px;
+  width: 170px;
   margin: 40px auto 20px;  /*  niche laaya */
   display: block;
-   animation: revealImage 1.5s ease forwards;   /* Infinite animation */
+   animation: smoothEntry 2.5s ease-out, floatContinuous 6s ease-in-out infinite;  /* Infinite animation */
 }
 
-@keyframes revealImage {
+/*  Entry (andar se bahar) */
+@keyframes smoothEntry {
   0% {
-    transform: scale(0.7) translateY(40px);
+    transform: scale(0.6) translateY(60px);
     opacity: 0;
   }
   100% {
     transform: scale(1) translateY(0);
     opacity: 1;
+  }
+}
+
+/*  Continuous slow floating */
+@keyframes floatContinuous {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
