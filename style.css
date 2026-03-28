@@ -265,8 +265,7 @@ header .navbar{
 .about-section .social-link-list .social-link:hover{
   color: var(--secondary-color);
 }
-/* Menu section styling*/
-/* ================= MENU FIX ================= */
+
 /* ================= PREMIUM MENU ================= */
 .menu-section {
   background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
@@ -442,26 +441,74 @@ header .navbar{
   color: var(--primary-color);
 }
 /* Gallery section */
-.gallery-section{
-  padding: 50px 0 100px;
-}
-.gallery-section .gallery-list{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-}
-.gallery-section .gallery-list .gallery-item{
+/* ================= PREMIUM GALLERY ================= */
+.gallery-section {
+  padding: 80px 0;
+  background: #111;
   overflow: hidden;
-  border-radius: var(--border-radius-s);
-  width: calc(100%/3 - 32px);
-}
-.gallery-section .gallery-item .gallery-image{
-  width: 100%;
-  height: 100%;
-  cursor: zoom-in;
-  transition: 0.3s ease;
 }
 
+/* FLEX ROW (2 IMAGES PER ROW) */
+.gallery-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 30px;
+  animation: scrollGallery 25s linear infinite;
+}
+
+/* EACH IMAGE CARD */
+.gallery-item {
+  flex: 0 0 calc(50% - 20px); /* 👈 2 images per row */
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* IMAGE STYLE */
+.gallery-image {
+  width: 100%;
+  height: 350px;   /* 👈 BIG IMAGE */
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+/* HOVER EFFECT */
+.gallery-item:hover .gallery-image {
+  transform: scale(1.1);
+}
+
+/* DARK OVERLAY */
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .gallery-item {
+    flex: 0 0 80%;
+  }
+
+  .gallery-image {
+    height: 250px;
+  }
+}
+
+/* SMOOTH LEFT TO RIGHT SCROLL */
+@keyframes scrollGallery {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 /* Contact US section styling */
 .contact-section{
   padding: 50px 0 100px;
