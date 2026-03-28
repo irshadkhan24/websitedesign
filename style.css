@@ -440,51 +440,82 @@ header .navbar{
 .testimonials-section .swiper-slide-button:hover{
   color: var(--primary-color);
 }
-/* ================= GALLERY GRID (2 PER ROW) ================= */
+/* ================= PREMIUM PROJECT STYLE GALLERY ================= */
+.gallery-section {
+  padding: 100px 0;
+  background: #111;
+}
+
 .gallery-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
+  flex-direction: column;
+  gap: 80px;
 }
 
-/* 2 images per row */
+/* CARD LIKE PROJECT */
 .gallery-item {
-  width: calc(50% - 12.5px);
+  display: flex;
+  align-items: center;
+  gap: 60px;
+
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
+  transform: translateY(60px);
+  transition: all 1s ease;
 }
 
-/* IMAGE */
-.gallery-image {
-  width: 100%;
-  height: 250px;   /* 👈 thoda small rakha */
-  border-radius: 10px;
-
-  object-fit: contain;  /* 👈 FULL IMAGE SHOW (NO CUT) */
-  background: #f5f5f5;  /* 👈 black hata diya */
-  
-  transition: 0.5s ease;
+/* ALTERNATE LEFT RIGHT */
+.gallery-item.reverse {
+  flex-direction: row-reverse;
 }
 
-/* SHOW ON SCROLL */
+/* SHOW */
 .gallery-item.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* HOVER EFFECT */
+/* IMAGE BOX */
+.gallery-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+
+  /* 🔥 MAIN REVEAL EFFECT */
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.4s cubic-bezier(0.77, 0, 0.18, 1), transform 1.5s ease;
+}
+
+/* NORMAL SHOW */
+.gallery-item.show .gallery-image {
+  clip-path: inset(0 0 0 0);
+}
+
+/* REVERSE ANIMATION */
+.gallery-item.reverse .gallery-image {
+  clip-path: inset(0 0 0 100%);
+}
+
+.gallery-item.reverse.show .gallery-image {
+  clip-path: inset(0 0 0 0);
+}
+
+/* HOVER ZOOM */
 .gallery-item:hover .gallery-image {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 /* MOBILE */
-@media (max-width: 768px) {
-  .gallery-item {
-    width: 100%;
+@media (max-width: 900px) {
+  .gallery-item,
+  .gallery-item.reverse {
+    flex-direction: column;
   }
-}
-/* Contact US section styling */
+
+  .gallery-image {
+    height: 250px;
+  }
+}/* Contact US section styling */
 .contact-section{
   padding: 50px 0 100px;
   background: var(--light-pink-color);
