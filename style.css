@@ -313,21 +313,20 @@ header .navbar{
 
 /* IMAGE PERFECT CENTER */
 .menu-item .menu-image {
-  width: 130px;
+  width: 160px;
   margin: 40px auto 20px;  /*  niche laaya */
   display: block;
-   animation: floatImage 4s ease-in-out infinite;   /* Infinite animation */
+   animation: revealImage 1.5s ease forwards;   /* Infinite animation */
 }
 
-@keyframes floatImage {
+@keyframes revealImage {
   0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-12px);
+    transform: scale(0.7) translateY(40px);
+    opacity: 0;
   }
   100% {
-    transform: translateY(0px);
+    transform: scale(1) translateY(0);
+    opacity: 1;
   }
 }
 
