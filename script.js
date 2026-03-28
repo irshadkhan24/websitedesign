@@ -5,7 +5,7 @@ const navLinks = document.querySelectorAll('.nav-menu .nav-link');
 
 if (menuOpenButton) {
     menuOpenButton.addEventListener("click", () => {
-        document.body.classList.toggle("show-mobile-menu");
+        document.body.classList.add("show-mobile-menu");
     });
 }
 
@@ -22,16 +22,22 @@ navLinks.forEach(link => {
     });
 });
 
-// Navbar background on scroll
-window.addEventListener("scroll", () => {
-  const header = document.querySelector("header");
 
-  if (window.scrollY > 50) {
-    header.style.background = "rgba(0,0,0,0.9)";
-  } else {
-    header.style.background = "rgba(59, 20, 28, 0.8)";
-  }
+// ================= NAVBAR SCROLL =================
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+    if (!header) return;
+
+    if (window.scrollY > 50) {
+        header.style.background = "rgba(0,0,0,0.9)";
+        header.style.backdropFilter = "blur(12px)";
+    } else {
+        header.style.background = "rgba(59, 20, 28, 0.8)";
+        header.style.backdropFilter = "blur(8px)";
+    }
 });
+
 
 // ================= SWIPER SLIDER =================
 if (typeof Swiper !== "undefined") {
@@ -66,13 +72,13 @@ if (typeof Swiper !== "undefined") {
 }
 
 
-// ================= SCROLL REVEAL =================
+// ================= SCROLL REVEAL (REPEAT ENABLED) =================
 if (typeof ScrollReveal !== "undefined") {
     const sr = ScrollReveal({
         distance: '60px',
         duration: 1000,
         easing: 'ease',
-        reset: false
+        reset: true   // 👈 IMPORTANT (repeat animation)
     });
 
     sr.reveal('.hero-details', { origin: 'left' });
@@ -89,33 +95,63 @@ if (typeof ScrollReveal !== "undefined") {
 }
 
 
-// ================= TYPEWRITER EFFECT =================
+// ================= TYPEWRITER LOOP (SMOOTH) =================
 const subtitle = document.querySelector(".subtitle");
 
 if (subtitle) {
     const text = "Make your day great with our special coffee!";
-    let i = 0;
+    let index = 0;
+    let isDeleting = false;
 
-    subtitle.textContent = "";
+    function typeLoop() {
+        if (!isDeleting) {
+            subtitle.textContent = text.substring(0, index++);
+            
+            if (index > text.length) {
+                isDeleting = true;
+                setTimeout(typeLoop, 1200); // pause
+                return;
+            }
+        } else {
+            subtitle.textContent = text.substring(0, index--);
 
-    function typeEffect() {
-        if (i < text.length) {
-            subtitle.textContent += text[i];
-            i++;
-            setTimeout(typeEffect, 50);
+            if (index === 0) {
+                isDeleting = false;
+            }
         }
+
+        setTimeout(typeLoop, isDeleting ? 35 : 55);
     }
 
-    typeEffect();
+    typeLoop();
 }
 
 
-// ================= SIMPLE PARALLAX (LIGHTWEIGHT) =================
+// ================= PARALLAX (SMOOTH + PERFORMANCE) =================
 const heroImage = document.querySelector(".hero-image");
 
 window.addEventListener("scroll", () => {
     if (!heroImage) return;
 
     const scrollY = window.scrollY;
-    heroImage.style.transform = `translateY(${scrollY * 0.15}px)`;
+
+    requestAnimationFrame(() => {
+        heroImage.style.transform = `translateY(${scrollY * 0.15}px)`;
+    });
+});
+
+
+// ================= MENU SCROLL ANIMATION REPLAY =================
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        } else {
+            entry.target.classList.remove("show"); // replay
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".menu-item").forEach(el => {
+    observer.observe(el);
 });
