@@ -440,54 +440,54 @@ header .navbar{
 .testimonials-section .swiper-slide-button:hover{
   color: var(--primary-color);
 }
-/* ================= CLEAN GALLERY (2 PER ROW) ================= */
-.gallery-section {
-  padding: 80px 0;
-  background: #f5f7fa; /* 🔥 light professional bg */
-}
-
+/* ================= GALLERY GRID (2 PER ROW) ================= */
 .gallery-list {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  justify-content: center;
 }
 
-/* 2 PER ROW */
+/* 2 per row */
 .gallery-item {
-  width: calc(50% - 15px);
-  border-radius: 15px;
-  overflow: hidden;
-  background: #fff;
-  padding: 10px;
+  width: calc(50% - 15px);  /* 👈 MAIN CHANGE */
+  position: relative;
 
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-
-  /* animation */
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+/* IMAGE BOX (same animation) */
+.gallery-image {
+  width: 100%;
+  height: 300px;   /* 👈 thoda chota */
+  border-radius: 12px;
+
+  object-fit: contain;  /* 🔥 FULL IMAGE (NO CUT) */
+  background: #fff;     /* empty space clean lage */
+
+  /* SAME PROJECT EFFECT */
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.4s cubic-bezier(0.77, 0, 0.18, 1), transform 1.5s ease;
 }
 
 /* SHOW */
-.gallery-item.show {
-  opacity: 1;
-  transform: translateY(0);
+.gallery-item.show .gallery-image {
+  clip-path: inset(0 0 0 0);
 }
 
-/* IMAGE FIX (IMPORTANT 🔥) */
-.gallery-image {
-  width: 100%;
-  height: 260px;   /* 👈 controlled height */
-  object-fit: contain; /* 👈 FULL IMAGE visible (no cut) */
-  background: #fff; /* space fill */
-  border-radius: 10px;
-  transition: transform 0.4s ease;
+/* REVERSE */
+.gallery-item.reverse .gallery-image {
+  clip-path: inset(0 0 0 100%);
+}
+
+.gallery-item.reverse.show .gallery-image {
+  clip-path: inset(0 0 0 0);
 }
 
 /* HOVER */
 .gallery-item:hover .gallery-image {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 /* MOBILE */
@@ -495,12 +495,7 @@ header .navbar{
   .gallery-item {
     width: 100%;
   }
-
-  .gallery-image {
-    height: 220px;
-  }
-}
-/* Contact US section styling */
+}/* Contact US section styling */
 .contact-section{
   padding: 50px 0 100px;
   background: var(--light-pink-color);
