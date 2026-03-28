@@ -440,10 +440,10 @@ header .navbar{
 .testimonials-section .swiper-slide-button:hover{
   color: var(--primary-color);
 }
-/* ================= UPDATED GALLERY ================= */
+/* ================= FINAL GALLERY FIX ================= */
 .gallery-section {
   padding: 100px 0;
-  background: #f5f5f5; /* 👈 black hata diya (light background) */
+  background: #f5f5f5;
 }
 
 .gallery-list {
@@ -459,27 +459,28 @@ header .navbar{
   transition: all 0.8s ease;
 }
 
-/* SHOW */
 .gallery-item.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* IMAGE BOX FIX */
+/* IMAGE FIX */
 .gallery-image {
   width: 100%;
-  height: 220px;            /* 👈 same height sab ke liye */
-  object-fit: contain;      /* 👈 full image dikhe (no cut) */
-  background: #fff;         /* 👈 black box remove */
-  padding: 10px;            /* 👈 spacing */
+  height: 300px;          /* 👈 image bada kar diya */
+  object-fit: contain;    /* 👈 full image dikhe */
   border-radius: 12px;
+
+  /* ❌ REMOVE THIS (important) */
+  background: none;
+  padding: 0;
 
   /* SAME ANIMATION */
   clip-path: inset(0 100% 0 0);
   transition: clip-path 1.4s cubic-bezier(0.77, 0, 0.18, 1), transform 0.5s ease;
 }
 
-/* SHOW EFFECT */
+/* SHOW */
 .gallery-item.show .gallery-image {
   clip-path: inset(0 0 0 0);
 }
@@ -495,7 +496,7 @@ header .navbar{
 
 /* HOVER */
 .gallery-item:hover .gallery-image {
-  transform: scale(1.05); /* 👈 thoda subtle zoom */
+  transform: scale(1.08);
 }
 
 /* MOBILE */
@@ -505,7 +506,7 @@ header .navbar{
   }
 
   .gallery-image {
-    height: 200px;
+    height: 250px;
   }
 }
 /* Contact US section styling */
