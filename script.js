@@ -138,6 +138,23 @@ window.addEventListener("scroll", () => {
     requestAnimationFrame(() => {
         heroImage.style.transform = `translateY(${scrollY * 0.15}px)`;
     });
+
+    // ================= GALLERY REVEAL FIX =================
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+galleryItems.forEach(item => {
+  observer.observe(item);
+});
 });
 
 
