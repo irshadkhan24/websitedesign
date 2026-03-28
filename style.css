@@ -266,6 +266,62 @@ header .navbar{
   color: var(--secondary-color);
 }
 /* Menu section styling*/
+/* ================= MENU FIX ================= */
+.menu-section .menu-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;   /* gap reduce */
+  justify-content: center;
+}
+
+.menu-section .menu-list .menu-item{
+  width: calc(100% / 3 - 40px);
+  padding: 30px 20px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  transition: 0.4s ease;
+}
+
+/* IMAGE FIX */
+.menu-section .menu-item .menu-image{
+  max-width: 140px;
+  margin: 20px auto; /* image center + niche */
+  display: block;
+  transition: 0.4s ease;
+}
+
+/* TEXT HIDDEN DEFAULT */
+.menu-item .name,
+.menu-item .text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.4s ease;
+}
+
+/* HOVER EFFECT */
+.menu-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.menu-item:hover .menu-image {
+  transform: scale(1.2);
+}
+
+.menu-item:hover .name,
+.menu-item:hover .text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* REMOVE EXTRA EMPTY SPACE */
+.menu-item .text{
+  margin-top: 10px;
+}
 .menu-section{
   color: var(--white-color);
   background: var(--dark-color);
@@ -274,17 +330,19 @@ header .navbar{
 .menu-section .menu-list{
   display: flex;
   flex-wrap: wrap;
-  gap: 110px;    /*reduce gap from each images */
-  align-items: center;
-  justify-content: space-between;
+  gap: 50px;    /*reduce gap from each images */
+  justify-content: center;
 }
 .menu-section .menu-list .menu-item{
-  display: flex;
-  align-items: center;
+  width: calc(100% / 3 - 40px);
+  padding: 30px 20px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
   text-align: center;
-  flex-direction: column;
-  justify-content: space-between;
-  width: calc(100% / 3 - 110px); /* increased width */
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  transition: 0.4s ease;
 }
 .menu-section .menu-list .menu-item .menu-image{
   max-width: 83%;   /* increased image width */
@@ -299,6 +357,18 @@ header .navbar{
 }
 .menu-section .menu-list .menu-item .text{
   font-size: var(--font-size-m);
+}
+
+@media (max-width: 768px){
+  .menu-section .menu-list .menu-item{
+    width: calc(100% / 2 - 20px);
+  }
+
+  .menu-item .name,
+  .menu-item .text{
+    opacity: 1; /* mobile pe always visible */
+    transform: none;
+  }
 }
 /* Testimonials section styling */
 .testimonials-section{
