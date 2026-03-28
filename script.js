@@ -139,21 +139,29 @@ window.addEventListener("scroll", () => {
         heroImage.style.transform = `translateY(${scrollY * 0.15}px)`;
     });
 
-    // ================= GALLERY REVEAL FIX =================
+  // ================= PROJECT STYLE GALLERY =================
 const galleryItems = document.querySelectorAll('.gallery-item');
 
-const observer = new IntersectionObserver((entries) => {
+// Alternate reverse class auto add
+galleryItems.forEach((item, index) => {
+  if (index % 2 !== 0) {
+    item.classList.add('reverse');
+  }
+});
+
+// Scroll animation
+const galleryObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
+    } else {
+      entry.target.classList.remove('show');
     }
   });
-}, {
-  threshold: 0.2
-});
+}, { threshold: 0.3 });
 
 galleryItems.forEach(item => {
-  observer.observe(item);
+  galleryObserver.observe(item);
 });
 });
 
