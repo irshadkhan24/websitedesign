@@ -440,28 +440,23 @@ header .navbar{
 .testimonials-section .swiper-slide-button:hover{
   color: var(--primary-color);
 }
-/* ================= PREMIUM PROJECT STYLE GALLERY ================= */
+/* ================= UPDATED GALLERY ================= */
 .gallery-section {
   padding: 100px 0;
-  background: #111;
+  background: linear-gradient(135deg, #f5f7fa, #e4ecf7); /* ✅ light premium bg */
 }
 
 .gallery-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 🔥 2 per row */
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr); /* ✅ 3 per row */
+  gap: 25px;
 }
 
 /* CARD */
 .gallery-item {
   opacity: 0;
-  transform: translateY(60px);
+  transform: translateY(50px);
   transition: all 0.8s ease;
-}
-
-/* ALTERNATE LEFT RIGHT */
-.gallery-item.reverse {
-  flex-direction: row-reverse;
 }
 
 /* SHOW */
@@ -470,43 +465,35 @@ header .navbar{
   transform: translateY(0);
 }
 
-/* IMAGE BOX */
+/* IMAGE BOX FIX */
 .gallery-image {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 220px;              /* ✅ same height for all */
+  object-fit: contain;        /* ✅ FULL image show (no crop) */
+  background: #fff;           /* ✅ white background behind image */
+  padding: 10px;              /* ✅ spacing */
   border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 
-  /* 🔥 MAIN REVEAL EFFECT */
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 1.4s cubic-bezier(0.77, 0, 0.18, 1), transform 1.5s ease;
+  transition: 0.4s ease;
 }
 
-/* NORMAL SHOW */
-.gallery-item.show .gallery-image {
-  clip-path: inset(0 0 0 0);
-}
-
-/* REVERSE ANIMATION */
-.gallery-item.reverse .gallery-image {
-  clip-path: inset(0 0 0 100%);
-}
-
-.gallery-item.reverse.show .gallery-image {
-  clip-path: inset(0 0 0 0);
-}
-
-/* HOVER ZOOM */
+/* HOVER EFFECT */
 .gallery-item:hover .gallery-image {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 /* MOBILE */
 @media (max-width: 900px) {
-  .gallery-item,
-  .gallery-item.reverse {
-    flex-direction: column;
-  } 
+  .gallery-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Contact US section styling */
