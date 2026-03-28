@@ -22,6 +22,16 @@ navLinks.forEach(link => {
     });
 });
 
+// Navbar background on scroll
+window.addEventListener("scroll", () => {
+  const header = document.querySelector("header");
+
+  if (window.scrollY > 50) {
+    header.style.background = "rgba(0,0,0,0.9)";
+  } else {
+    header.style.background = "rgba(59, 20, 28, 0.8)";
+  }
+});
 
 // ================= SWIPER SLIDER =================
 if (typeof Swiper !== "undefined") {
