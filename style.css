@@ -469,8 +469,7 @@ header .navbar{
 .gallery-image {
   width: 100%;
   height: 300px;          /* image big */
-  object-fit: cover;    /*  full image fill */
-  border-radius: 12px;
+  object-fit: contain;    /*  full image fill */
      display: block;
   /* ❌ REMOVE THIS (important) */
   background: none;
@@ -505,9 +504,7 @@ header .navbar{
     grid-template-columns: 1fr;
   }
 
-  .gallery-image {
-    height: 250px;
-  }
+ 
 }
 /* Contact US section styling */
 .contact-section{
