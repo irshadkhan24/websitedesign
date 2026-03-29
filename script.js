@@ -70,8 +70,8 @@ if (typeof Swiper !== "undefined") {
 // ================= SCROLL REVEAL (REPEAT ENABLED) =================
 if (typeof ScrollReveal !== "undefined") {
   const sr = ScrollReveal({
-    distance: '60px',
-    duration: 1000,
+    distance: '80px',
+    duration: 1200,
     easing: 'ease',
     reset: true // repeat animation
   });
