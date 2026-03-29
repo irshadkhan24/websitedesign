@@ -316,10 +316,10 @@ header .navbar{
 
 /* IMAGE PERFECT CENTER */
 .menu-item .menu-image {
-  width: 160px;
-  height: 160px;
-  object-fit: contain;
-  margin: 0 auto;
+  width: 200px;          /* bigger size */
+  height: 200px;         /* fix height */
+  object-fit: contain;   /* full image dikhe */
+  margin: 10px auto;
   display: block;
   transition: 0.4s ease;
 }
