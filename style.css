@@ -124,6 +124,28 @@ header .navbar{
 /* NAVBAR HOVER EFFECT */
 .navbar .nav-menu .nav-link {
   position: relative;
+}
+
+/* LINE */
+.navbar .nav-menu .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  width: 0%;
+  height: 3px;
+  background: var(--secondary-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 5px;
+}
+
+/* HOVER EFFECT */
+.navbar .nav-menu .nav-link:hover::after {
+  width: 70%;
+}
+.navbar .nav-menu .nav-link {
+  position: relative;
   overflow: hidden;
 }
 
