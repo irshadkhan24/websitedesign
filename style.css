@@ -285,7 +285,7 @@ header .navbar{
 
 /* CARD */
 .menu-item {
-  width: calc(100% / 3 - 30px);
+  width: calc((100% - 60px) / 3);
   padding: 30px 20px;
   border-radius: 20px;
   text-align: center;
@@ -844,6 +844,7 @@ header .navbar{
 /* 3D FLIP EFFECT */
 .menu-item {
   perspective: 1000px;
+     overflow: hidden;
 }
 
 .menu-item .menu-image {
