@@ -283,17 +283,20 @@ header .navbar{
 /* CARD */
 .menu-item {
   width: calc(100% / 3 - 30px);
-  padding: 40px 20px;
+  padding: 30px 20px;
   border-radius: 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
 
-  /* PREMIUM GLASS EFFECT */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.08);
-
   transition: 0.4s ease;
 }
 
@@ -313,10 +316,12 @@ header .navbar{
 
 /* IMAGE PERFECT CENTER */
 .menu-item .menu-image {
-  width: 170px;
-  margin: 40px auto 20px;  /*  niche laaya */
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  margin: 0 auto;
   display: block;
-   animation: smoothEntry 1.8s ease-out, floatContinuous 4s ease-in-out infinite;  /* Infinite animation */
+  transition: 0.4s ease;
 }
 
 /*  Entry (andar se bahar) */
@@ -363,7 +368,7 @@ header .navbar{
 .menu-item .name,
 .menu-item .text {
   opacity: 0;
-  transform: translateY(25px);
+  transform: translateY(20px);
   transition: 0.4s ease;
 }
 
@@ -387,14 +392,16 @@ header .navbar{
 .menu-item::before {
   content: "View Item";
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   background: rgba(0,0,0,0.7);
   padding: 10px 20px;
   border-radius: 25px;
+  color: #fff;
   font-weight: 600;
-  transition: 0.4s;
+  transition: 0.3s ease;
+  z-index: 2;
 }
 
 .menu-item:hover::before {
